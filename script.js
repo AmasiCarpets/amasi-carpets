@@ -2,16 +2,16 @@ const STORE_WHATSAPP = "+966554403379"; // استبدل هذا الرقم برق
 const carpetSizes = ["400 × 500", "300 × 400", "250 × 350", "200 × 290", "150 × 220"];
 const runnerSizes = ["100 × 300", "100 × 200", "80 × 150", "50 × 80"];
 const products = [
-  {id:1,img:"assets/carpet-01.jpeg",cat:"medallion",ar:"روبي لؤلؤة 01",en:"Ruby Pearl 01"},
-  {id:2,img:"assets/carpet-02.jpeg",cat:"medallion",ar:"روبي قصر 02",en:"Ruby Palace 02"},
-  {id:3,img:"assets/carpet-03.jpeg",cat:"floral",ar:"روبي حديقة 03",en:"Ruby Garden 03"},
-  {id:4,img:"assets/carpet-04.jpeg",cat:"medallion",ar:"روبي ملكي 04",en:"Ruby Royal 04"},
-  {id:5,img:"assets/carpet-05.jpeg",cat:"garden",ar:"روبي بختياري 05",en:"Ruby Bakhtiari 05"},
-  {id:6,img:"assets/carpet-06.jpeg",cat:"garden",ar:"روبي بختياري 06",en:"Ruby Bakhtiari 06"},
-  {id:7,img:"assets/carpet-07.jpeg",cat:"medallion",ar:"روبي أميرة 07",en:"Ruby Princess 07"},
-  {id:8,img:"assets/carpet-08.jpeg",cat:"medallion",ar:"روبي تاج 08",en:"Ruby Crown 08"},
-  {id:9,img:"assets/carpet-09.jpeg",cat:"floral",ar:"روبي زهرة 09",en:"Ruby Blossom 09"},
-  {id:10,img:"assets/carpet-10.jpeg",cat:"medallion",ar:"روبي لؤلؤة 10",en:"Ruby Pearl 10"}
+  {id:1,img:"carpet-01.jpeg",cat:"medallion",ar:"روبي لؤلؤة 01",en:"Ruby Pearl 01"},
+  {id:2,img:"carpet-02.jpeg",cat:"medallion",ar:"روبي قصر 02",en:"Ruby Palace 02"},
+  {id:3,img:"carpet-03.jpeg",cat:"floral",ar:"روبي حديقة 03",en:"Ruby Garden 03"},
+  {id:4,img:"carpet-04.jpeg",cat:"medallion",ar:"روبي ملكي 04",en:"Ruby Royal 04"},
+  {id:5,img:"carpet-05.jpeg",cat:"garden",ar:"روبي بختياري 05",en:"Ruby Bakhtiari 05"},
+  {id:6,img:"carpet-06.jpeg",cat:"garden",ar:"روبي بختياري 06",en:"Ruby Bakhtiari 06"},
+  {id:7,img:"carpet-07.jpeg",cat:"medallion",ar:"روبي أميرة 07",en:"Ruby Princess 07"},
+  {id:8,img:"carpet-08.jpeg",cat:"medallion",ar:"روبي تاج 08",en:"Ruby Crown 08"},
+  {id:9,img:"carpet-09.jpeg",cat:"floral",ar:"روبي زهرة 09",en:"Ruby Blossom 09"},
+  {id:10,img:"carpet-10.jpeg",cat:"medallion",ar:"روبي لؤلؤة 10",en:"Ruby Pearl 10"}
 ];
 let lang="ar", favorites=JSON.parse(localStorage.getItem("amasiFavs")||"[]"), activeProduct=null;
 const grid=document.getElementById("productGrid"), search=document.getElementById("searchInput"), category=document.getElementById("categorySelect"), empty=document.getElementById("emptyState");

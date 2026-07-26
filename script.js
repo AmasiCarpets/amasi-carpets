@@ -1,38 +1,820 @@
-const STORE_WHATSAPP = "+966554403379"; // استبدل هذا الرقم برقم واتساب المتجر بدون +
-const carpetSizes = ["400 × 500", "300 × 400", "250 × 350", "200 × 290", "150 × 220"];
-const runnerSizes = ["100 × 300", "100 × 200", "80 × 150", "50 × 80"];
-const products = [
-  {id:1,img:"carpet-01.jpeg",cat:"medallion",ar:"روبي لؤلؤة 01",en:"Ruby Pearl 01"},
-  {id:2,img:"carpet-02.jpeg",cat:"medallion",ar:"روبي قصر 02",en:"Ruby Palace 02"},
-  {id:3,img:"carpet-03.jpeg",cat:"floral",ar:"روبي حديقة 03",en:"Ruby Garden 03"},
-  {id:4,img:"carpet-04.jpeg",cat:"medallion",ar:"روبي ملكي 04",en:"Ruby Royal 04"},
-  {id:5,img:"carpet-05.jpeg",cat:"garden",ar:"روبي بختياري 05",en:"Ruby Bakhtiari 05"},
-  {id:6,img:"carpet-06.jpeg",cat:"garden",ar:"روبي بختياري 06",en:"Ruby Bakhtiari 06"},
-  {id:7,img:"carpet-07.jpeg",cat:"medallion",ar:"روبي أميرة 07",en:"Ruby Princess 07"},
-  {id:8,img:"carpet-08.jpeg",cat:"medallion",ar:"روبي تاج 08",en:"Ruby Crown 08"},
-  {id:9,img:"carpet-09.jpeg",cat:"floral",ar:"روبي زهرة 09",en:"Ruby Blossom 09"},
-  {id:10,img:"carpet-10.jpeg",cat:"medallion",ar:"روبي لؤلؤة 10",en:"Ruby Pearl 10"}
+const STORE_WHATSAPP = "+966554403379";
+
+const carpetSizes = [
+  "400 × 500",
+  "300 × 400",
+  "250 × 350",
+  "200 × 290",
+  "150 × 220"
 ];
-let lang="ar", favorites=JSON.parse(localStorage.getItem("amasiFavs")||"[]"), activeProduct=null;
-const grid=document.getElementById("productGrid"), search=document.getElementById("searchInput"), category=document.getElementById("categorySelect"), empty=document.getElementById("emptyState");
-function t(ar,en){return lang==="ar"?ar:en}
-function render(){
-  const q=search.value.trim().toLowerCase(), cat=category.value;
-  const filtered=products.filter(p=>(cat==="all"||p.cat===cat)&&(`${p.ar} ${p.en} ${carpetSizes.join(" ")}`.toLowerCase().includes(q)));
-  grid.innerHTML=filtered.map(p=>`<article class="product-card">
-    <button class="fav ${favorites.includes(p.id)?"active":""}" onclick="toggleFav(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button>
-    <span class="badge">${t("جديد","NEW")}</span>
-    <div class="product-image" onclick="openProduct(${p.id})"><img src="${p.img}" alt="${lang==='ar'?p.ar:p.en}" loading="lazy"></div>
-    <div class="product-info"><h3>${lang==='ar'?p.ar:p.en}</h3><p>${t("ماركة روبي • جميع المقاسات متوفرة","Ruby brand • Multiple sizes available")}</p><span class="view" onclick="openProduct(${p.id})">${t("عرض التفاصيل ←","View details →")}</span></div>
-  </article>`).join("");
-  empty.classList.toggle("hidden",filtered.length!==0); updateFavCount();
+
+const runnerSizes = [
+  "100 × 300",
+  "100 × 200",
+  "80 × 150",
+  "50 × 80"
+];
+
+/* =========================
+   المجلدات / الماركات
+========================= */
+
+const collections = [
+  {
+    id: "ruby",
+    ar: "نقشات من ماركة روبي",
+    en: "Ruby Carpet Patterns",
+    cover: "carpet-01.jpeg",
+    descriptionAr: "اضغط لمشاهدة جميع نقشات ماركة روبي",
+    descriptionEn: "Tap to view all Ruby carpet patterns"
+  }
+
+  /*
+  لإضافة مجلد جديد مستقبلاً، ضع فاصلة بعد مجلد روبي ثم أضف:
+
+  {
+    id: "new-brand",
+    ar: "نقشات الماركة الجديدة",
+    en: "New Brand Patterns",
+    cover: "new-brand-01.jpeg",
+    descriptionAr: "اضغط لمشاهدة جميع النقشات",
+    descriptionEn: "Tap to view all patterns"
+  }
+  */
+];
+
+/* =========================
+   جميع النقشات
+========================= */
+
+const products = [
+  {
+    id: 1,
+    collection: "ruby",
+    img: "carpet-01.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 01",
+    en: "Ruby Pattern 01"
+  },
+  {
+    id: 2,
+    collection: "ruby",
+    img: "carpet-02.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 02",
+    en: "Ruby Pattern 02"
+  },
+  {
+    id: 3,
+    collection: "ruby",
+    img: "carpet-03.jpeg",
+    cat: "floral",
+    ar: "نقشة روبي 03",
+    en: "Ruby Pattern 03"
+  },
+  {
+    id: 4,
+    collection: "ruby",
+    img: "carpet-04.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 04",
+    en: "Ruby Pattern 04"
+  },
+  {
+    id: 5,
+    collection: "ruby",
+    img: "carpet-05.jpeg",
+    cat: "garden",
+    ar: "نقشة روبي 05",
+    en: "Ruby Pattern 05"
+  },
+  {
+    id: 6,
+    collection: "ruby",
+    img: "carpet-06.jpeg",
+    cat: "garden",
+    ar: "نقشة روبي 06",
+    en: "Ruby Pattern 06"
+  },
+  {
+    id: 7,
+    collection: "ruby",
+    img: "carpet-07.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 07",
+    en: "Ruby Pattern 07"
+  },
+  {
+    id: 8,
+    collection: "ruby",
+    img: "carpet-08.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 08",
+    en: "Ruby Pattern 08"
+  },
+  {
+    id: 9,
+    collection: "ruby",
+    img: "carpet-09.jpeg",
+    cat: "floral",
+    ar: "نقشة روبي 09",
+    en: "Ruby Pattern 09"
+  },
+  {
+    id: 10,
+    collection: "ruby",
+    img: "carpet-10.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 10",
+    en: "Ruby Pattern 10"
+  }
+
+  /*
+  لإضافة نقشة جديدة داخل روبي، ضع فاصلة بعد المنتج السابق ثم أضف:
+
+  {
+    id: 11,
+    collection: "ruby",
+    img: "carpet-11.jpeg",
+    cat: "medallion",
+    ar: "نقشة روبي 11",
+    en: "Ruby Pattern 11"
+  }
+
+  لإضافة نقشة لمجلد آخر، غيّر collection إلى معرف المجلد:
+  collection: "new-brand"
+  */
+];
+
+/* =========================
+   إعدادات الموقع
+========================= */
+
+const ITEMS_PER_PAGE = 24;
+
+let lang = "ar";
+let activeCollectionId = null;
+let activeProduct = null;
+let currentPage = 1;
+let showingFavorites = false;
+
+let favorites = JSON.parse(
+  localStorage.getItem("amasiFavs") || "[]"
+);
+
+const grid = document.getElementById("productGrid");
+const search = document.getElementById("searchInput");
+
+const category =
+  document.getElementById("category") ||
+  document.getElementById("categoryFilter");
+
+const empty =
+  document.getElementById("empty") ||
+  document.getElementById("emptyState");
+
+function t(ar, en) {
+  return lang === "ar" ? ar : en;
 }
-function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem("amasiFavs",JSON.stringify(favorites));render()}
-function updateFavCount(){document.getElementById("favCount").textContent=favorites.length}
-function openProduct(id){activeProduct=products.find(p=>p.id===id);document.getElementById("modalImg").src=activeProduct.img;document.getElementById("modalTitle").textContent=lang==='ar'?activeProduct.ar:activeProduct.en;document.getElementById("modalDesc").textContent=t("تصميم جديد من مجموعة روبي بألوان هادئة وفخمة، مناسب للمجالس وغرف المعيشة وغرف النوم.","A new Ruby collection design in calm, elegant tones, ideal for living rooms, majlis areas and bedrooms.");document.getElementById("sizeSelect").innerHTML=[...carpetSizes,...runnerSizes].map(s=>`<option>${s} cm</option>`).join("");document.getElementById("productModal").classList.remove("hidden")}
-function closeModal(){document.getElementById("productModal").classList.add("hidden")}
-function switchLang(){lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.getElementById("langBtn").textContent=lang==="ar"?"EN":"AR";document.querySelectorAll("[data-ar]").forEach(el=>el.textContent=el.dataset[lang]);search.placeholder=t("ابحث عن تصميم أو مقاس","Search design or size");[...category.options].forEach(o=>o.textContent=o.dataset[lang]);render();if(activeProduct&&!document.getElementById("productModal").classList.contains("hidden"))openProduct(activeProduct.id)}
-search.addEventListener("input",render);category.addEventListener("change",render);document.getElementById("langBtn").onclick=switchLang;document.getElementById("closeModal").onclick=closeModal;document.getElementById("productModal").onclick=e=>{if(e.target.id==="productModal")closeModal()};
-document.getElementById("favBtn").onclick=()=>{search.value="";category.value="all";const all=products;const saved=products.filter(p=>favorites.includes(p.id));grid.innerHTML=saved.length?saved.map(p=>`<article class="product-card"><button class="fav active" onclick="toggleFav(${p.id})">♥</button><span class="badge">${t("مفضلة","FAVORITE")}</span><div class="product-image" onclick="openProduct(${p.id})"><img src="${p.img}" alt=""></div><div class="product-info"><h3>${lang==='ar'?p.ar:p.en}</h3><p>${t("ماركة روبي • جميع المقاسات متوفرة","Ruby brand • Multiple sizes available")}</p><span class="view" onclick="openProduct(${p.id})">${t("عرض التفاصيل ←","View details →")}</span></div></article>`).join(""):`<p class="empty">${t("لا توجد منتجات في المفضلة.","Your favorites list is empty.")}</p>`;document.getElementById("products").scrollIntoView()};
-document.getElementById("whatsappBtn").onclick=()=>{const size=document.getElementById("sizeSelect").value;const name=lang==='ar'?activeProduct.ar:activeProduct.en;const msg=t(`السلام عليكم، أرغب بطلب ${name} بمقاس ${size}. أرجو تزويدي بالسعر والتوصيل.`,`Hello, I would like to order ${name} in size ${size}. Please send me the price and delivery details.`);window.open(`https://wa.me/${STORE_WHATSAPP}?text=${encodeURIComponent(msg)}`,"_blank")};
-render();
+
+function getCollection(collectionId) {
+  return collections.find(
+    (collection) => collection.id === collectionId
+  );
+}
+
+function resetFilters() {
+  currentPage = 1;
+
+  if (search) {
+    search.value = "";
+  }
+
+  if (category) {
+    category.value = "all";
+  }
+}
+
+/* =========================
+   عرض المجلدات
+========================= */
+
+function renderCollections() {
+  activeCollectionId = null;
+  showingFavorites = false;
+  currentPage = 1;
+
+  const query = search
+    ? search.value.trim().toLowerCase()
+    : "";
+
+  const filteredCollections = collections.filter((collection) => {
+    const collectionProducts = products.filter(
+      (product) => product.collection === collection.id
+    );
+
+    const searchableText = [
+      collection.ar,
+      collection.en,
+      collection.descriptionAr,
+      collection.descriptionEn,
+      ...collectionProducts.map(
+        (product) => `${product.ar} ${product.en}`
+      )
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return searchableText.includes(query);
+  });
+
+  grid.innerHTML = filteredCollections
+    .map((collection) => {
+      const count = products.filter(
+        (product) => product.collection === collection.id
+      ).length;
+
+      return `
+        <article class="product-card">
+
+          <span class="badge">
+            ${t("مجموعة", "COLLECTION")}
+          </span>
+
+          <div
+            class="product-image"
+            onclick="openCollection('${collection.id}')"
+          >
+            <img
+              src="${collection.cover}"
+              alt="${t(collection.ar, collection.en)}"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="product-info">
+            <h3>${t(collection.ar, collection.en)}</h3>
+
+            <p>
+              ${t(
+                collection.descriptionAr,
+                collection.descriptionEn
+              )}
+            </p>
+
+            <p>
+              ${t(
+                `عدد النقشات: ${count}`,
+                `Patterns: ${count}`
+              )}
+            </p>
+
+            <span
+              class="view"
+              onclick="openCollection('${collection.id}')"
+            >
+              ${t(
+                "عرض جميع النقشات ←",
+                "View all patterns →"
+              )}
+            </span>
+          </div>
+
+        </article>
+      `;
+    })
+    .join("");
+
+  if (empty) {
+    empty.classList.toggle(
+      "hidden",
+      filteredCollections.length !== 0
+    );
+  }
+
+  updateFavCount();
+}
+
+/* =========================
+   فتح مجلد
+========================= */
+
+function openCollection(collectionId) {
+  activeCollectionId = collectionId;
+  showingFavorites = false;
+  resetFilters();
+  renderProducts();
+
+  document.getElementById("products")?.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function goBackToCollections() {
+  activeCollectionId = null;
+  showingFavorites = false;
+  resetFilters();
+  renderCollections();
+
+  document.getElementById("products")?.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+/* =========================
+   عرض النقشات
+========================= */
+
+function getFilteredProducts() {
+  const query = search
+    ? search.value.trim().toLowerCase()
+    : "";
+
+  const selectedCategory = category
+    ? category.value
+    : "all";
+
+  let filtered = products.filter((product) => {
+    const matchesCollection = showingFavorites
+      ? favorites.includes(product.id)
+      : product.collection === activeCollectionId;
+
+    const matchesCategory =
+      selectedCategory === "all" ||
+      product.cat === selectedCategory;
+
+    const searchableText = `
+      ${product.ar}
+      ${product.en}
+      ${product.id}
+      ${carpetSizes.join(" ")}
+    `.toLowerCase();
+
+    return (
+      matchesCollection &&
+      matchesCategory &&
+      searchableText.includes(query)
+    );
+  });
+
+  return filtered;
+}
+
+function renderProducts() {
+  const filtered = getFilteredProducts();
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filtered.length / ITEMS_PER_PAGE)
+  );
+
+  if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+
+  const startIndex =
+    (currentPage - 1) * ITEMS_PER_PAGE;
+
+  const visibleProducts = filtered.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
+
+  const currentCollection =
+    getCollection(activeCollectionId);
+
+  const headerCard = `
+    <article class="product-card">
+      <div class="product-info">
+
+        <h3>
+          ${
+            showingFavorites
+              ? t("المفضلة", "Favorites")
+              : currentCollection
+                ? t(
+                    currentCollection.ar,
+                    currentCollection.en
+                  )
+                : t("النقشات", "Patterns")
+          }
+        </h3>
+
+        <p>
+          ${t(
+            `عدد النتائج: ${filtered.length}`,
+            `Results: ${filtered.length}`
+          )}
+        </p>
+
+        <span
+          class="view"
+          onclick="goBackToCollections()"
+        >
+          ${t(
+            "← الرجوع إلى المجلدات",
+            "← Back to collections"
+          )}
+        </span>
+
+      </div>
+    </article>
+  `;
+
+  const cards = visibleProducts
+    .map((product) => `
+      <article class="product-card">
+
+        <button
+          class="fav ${
+            favorites.includes(product.id)
+              ? "active"
+              : ""
+          }"
+          onclick="toggleFav(${product.id})"
+          aria-label="${t(
+            "إضافة إلى المفضلة",
+            "Add to favorites"
+          )}"
+        >
+          ${
+            favorites.includes(product.id)
+              ? "♥"
+              : "♡"
+          }
+        </button>
+
+        <span class="badge">
+          ${t("جديد", "NEW")}
+        </span>
+
+        <div
+          class="product-image"
+          onclick="openProduct(${product.id})"
+        >
+          <img
+            src="${product.img}"
+            alt="${t(product.ar, product.en)}"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <h3>${t(product.ar, product.en)}</h3>
+
+          <p>
+            ${t(
+              "جميع المقاسات متوفرة",
+              "Multiple sizes available"
+            )}
+          </p>
+
+          <span
+            class="view"
+            onclick="openProduct(${product.id})"
+          >
+            ${t(
+              "عرض التفاصيل ←",
+              "View details →"
+            )}
+          </span>
+
+        </div>
+
+      </article>
+    `)
+    .join("");
+
+  const pagination = filtered.length
+    ? `
+      <article class="product-card">
+        <div class="product-info">
+
+          <h3>
+            ${t(
+              `صفحة ${currentPage} من ${totalPages}`,
+              `Page ${currentPage} of ${totalPages}`
+            )}
+          </h3>
+
+          ${
+            currentPage > 1
+              ? `
+                <span
+                  class="view"
+                  onclick="changePage(${currentPage - 1})"
+                >
+                  ${t(
+                    "← الصفحة السابقة",
+                    "← Previous page"
+                  )}
+                </span>
+              `
+              : ""
+          }
+
+          ${
+            currentPage < totalPages
+              ? `
+                <span
+                  class="view"
+                  onclick="changePage(${currentPage + 1})"
+                >
+                  ${t(
+                    "الصفحة التالية →",
+                    "Next page →"
+                  )}
+                </span>
+              `
+              : ""
+          }
+
+        </div>
+      </article>
+    `
+    : "";
+
+  grid.innerHTML =
+    headerCard +
+    cards +
+    pagination;
+
+  if (empty) {
+    empty.classList.toggle(
+      "hidden",
+      filtered.length !== 0
+    );
+  }
+
+  updateFavCount();
+}
+
+function changePage(pageNumber) {
+  currentPage = pageNumber;
+  renderProducts();
+
+  document.getElementById("products")?.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+/* =========================
+   المفضلة
+========================= */
+
+function toggleFav(id) {
+  if (favorites.includes(id)) {
+    favorites = favorites.filter(
+      (favoriteId) => favoriteId !== id
+    );
+  } else {
+    favorites.push(id);
+  }
+
+  localStorage.setItem(
+    "amasiFavs",
+    JSON.stringify(favorites)
+  );
+
+  if (activeCollectionId || showingFavorites) {
+    renderProducts();
+  } else {
+    renderCollections();
+  }
+}
+
+function updateFavCount() {
+  const favCount =
+    document.getElementById("favCount");
+
+  if (favCount) {
+    favCount.textContent = favorites.length;
+  }
+}
+
+function showFavorites() {
+  activeCollectionId = null;
+  showingFavorites = true;
+  resetFilters();
+  renderProducts();
+
+  document.getElementById("products")?.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+/* =========================
+   نافذة تفاصيل النقشة
+========================= */
+
+function openProduct(id) {
+  activeProduct = products.find(
+    (product) => product.id === id
+  );
+
+  if (!activeProduct) {
+    return;
+  }
+
+  const modalImg =
+    document.getElementById("modalImg");
+
+  const modalTitle =
+    document.getElementById("modalTitle");
+
+  const modalDesc =
+    document.getElementById("modalDesc");
+
+  const sizeSelect =
+    document.getElementById("sizeSelect");
+
+  if (modalImg) {
+    modalImg.src = activeProduct.img;
+    modalImg.alt = t(
+      activeProduct.ar,
+      activeProduct.en
+    );
+  }
+
+  if (modalTitle) {
+    modalTitle.textContent = t(
+      activeProduct.ar,
+      activeProduct.en
+    );
+  }
+
+  if (modalDesc) {
+    modalDesc.textContent = t(
+      "سجاد فاخر متوفر بمقاسات متعددة. تواصل معنا لمعرفة السعر والتوفر.",
+      "Luxury carpet available in multiple sizes. Contact us for price and availability."
+    );
+  }
+
+  if (sizeSelect) {
+    sizeSelect.innerHTML = carpetSizes
+      .map(
+        (size) =>
+          `<option value="${size}">${size}</option>`
+      )
+      .join("");
+  }
+
+  document
+    .getElementById("productModal")
+    ?.classList.remove("hidden");
+}
+
+function closeModal() {
+  document
+    .getElementById("productModal")
+    ?.classList.add("hidden");
+}
+
+/* =========================
+   تغيير اللغة
+========================= */
+
+function switchLang() {
+  lang = lang === "ar" ? "en" : "ar";
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir =
+    lang === "ar" ? "rtl" : "ltr";
+
+  const langBtn =
+    document.getElementById("langBtn");
+
+  if (langBtn) {
+    langBtn.textContent =
+      lang === "ar" ? "EN" : "AR";
+  }
+
+  document
+    .querySelectorAll("[data-ar]")
+    .forEach((element) => {
+      element.textContent =
+        lang === "ar"
+          ? element.dataset.ar
+          : element.dataset.en;
+    });
+
+  if (search) {
+    search.placeholder = t(
+      "ابحث عن ماركة أو نقشة أو مقاس",
+      "Search for a brand, pattern or size"
+    );
+  }
+
+  if (activeCollectionId || showingFavorites) {
+    renderProducts();
+  } else {
+    renderCollections();
+  }
+}
+
+/* =========================
+   البحث والتصفية
+========================= */
+
+if (search) {
+  search.addEventListener("input", () => {
+    currentPage = 1;
+
+    if (activeCollectionId || showingFavorites) {
+      renderProducts();
+    } else {
+      renderCollections();
+    }
+  });
+}
+
+if (category) {
+  category.addEventListener("change", () => {
+    currentPage = 1;
+
+    if (activeCollectionId || showingFavorites) {
+      renderProducts();
+    }
+  });
+}
+
+/* =========================
+   الأزرار
+========================= */
+
+const langBtn =
+  document.getElementById("langBtn");
+
+if (langBtn) {
+  langBtn.onclick = switchLang;
+}
+
+const favBtn =
+  document.getElementById("favBtn");
+
+if (favBtn) {
+  favBtn.onclick = showFavorites;
+}
+
+const closeModalBtn =
+  document.getElementById("closeModal");
+
+if (closeModalBtn) {
+  closeModalBtn.onclick = closeModal;
+}
+
+const productModal =
+  document.getElementById("productModal");
+
+if (productModal) {
+  productModal.onclick = (event) => {
+    if (event.target.id === "productModal") {
+      closeModal();
+    }
+  };
+}
+
+/* =========================
+   الطلب عبر واتساب
+========================= */
+
+const whatsappBtn =
+  document.getElementById("whatsappBtn");
+
+if (whatsappBtn) {
+  whatsappBtn.onclick = () => {
+    if (!activeProduct) {
+      return;
+    }
+
+    const sizeSelect =
+      document.getElementById("sizeSelect");
+
+    const selectedSize =
+      sizeSelect?.value || "";
+
+    const productName = t(
+      activeProduct.ar,
+      activeProduct.en
+    );
+
+    const message = t(
+      `السلام عليكم، أرغب بطلب ${productName} بمقاس ${selectedSize}. أرجو تزويدي بالسعر والتوصيل.`,
+      `Hello, I would like to order ${productName} in size ${selectedSize}. Please send me the price and delivery details.`
+    );
+
+    const phoneNumber =
+      STORE_WHATSAPP.replace(/\D/g, "");
+
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
+}
+
+/* تشغيل الموقع */
+
+updateFavCount();
+renderCollections();

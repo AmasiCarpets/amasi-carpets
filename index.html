@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amasi Carpets - Ruby carpets and runners delivered across Saudi Arabia." />
+  <title>Amasi Carpets | أماسي كاربتس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="topbar" data-ar="توصيل لجميع مناطق المملكة العربية السعودية" data-en="Delivery across all regions of Saudi Arabia">توصيل لجميع مناطق المملكة العربية السعودية</div>
+
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Amasi Carpets home">
+      <span class="brand-mark">A</span>
+      <span><strong>Amasi Carpets</strong><small>أماسي كاربتس</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#products" data-ar="السجاد" data-en="Carpets">السجاد</a>
+      <a href="#sizes" data-ar="المقاسات" data-en="Sizes">المقاسات</a>
+      <a href="#delivery" data-ar="التوصيل" data-en="Delivery">التوصيل</a>
+    </nav>
+    <div class="header-actions">
+      <button id="langBtn" class="icon-btn">EN</button>
+      <button id="favBtn" class="icon-btn" aria-label="Favorites">♡ <span id="favCount">0</span></button>
+      <button id="menuBtn" class="icon-btn menu-btn">☰</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow" data-ar="مجموعة روبي الجديدة" data-en="New Ruby Collection">مجموعة روبي الجديدة</span>
+        <h1 data-ar="أناقة هادئة تُكمل جمال منزلك" data-en="Quiet elegance for every home">أناقة هادئة تُكمل جمال منزلك</h1>
+        <p data-ar="سجاد روبي بتصاميم فاخرة وألوان عصرية، متوفر بمقاسات متعددة وممرات، مع توصيل لجميع مناطق المملكة." data-en="Premium Ruby carpets in elegant neutral tones, available in multiple room sizes and runners, with delivery across Saudi Arabia.">سجاد روبي بتصاميم فاخرة وألوان عصرية، متوفر بمقاسات متعددة وممرات، مع توصيل لجميع مناطق المملكة.</p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#products" data-ar="تسوق الآن" data-en="Shop now">تسوق الآن</a>
+          <a class="btn secondary" href="#sizes" data-ar="عرض المقاسات" data-en="View sizes">عرض المقاسات</a>
+        </div>
+        <div class="hero-points">
+          <span>✓ <b data-ar="جودة روبي" data-en="Ruby quality">جودة روبي</b></span>
+          <span>✓ <b data-ar="طلب عبر واتساب" data-en="WhatsApp ordering">طلب عبر واتساب</b></span>
+          <span>✓ <b data-ar="دعم عربي وإنجليزي" data-en="Arabic & English">دعم عربي وإنجليزي</b></span>
+        </div>
+      </div>
+      <div class="hero-image"><img src="assets/carpet-01.jpeg" alt="Ruby carpet by Amasi Carpets"></div>
+    </section>
+
+    <section class="toolbar" id="products">
+      <div>
+        <span class="section-kicker" data-ar="تشكيلة مختارة" data-en="Curated collection">تشكيلة مختارة</span>
+        <h2 data-ar="سجاد روبي الجديد" data-en="New Ruby Carpets">سجاد روبي الجديد</h2>
+      </div>
+      <div class="controls">
+        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن تصميم أو مقاس" /></label>
+        <select id="categorySelect" aria-label="Category">
+          <option value="all" data-ar="كل التصنيفات" data-en="All categories">كل التصنيفات</option>
+          <option value="medallion" data-ar="ميدالية وسطية" data-en="Center medallion">ميدالية وسطية</option>
+          <option value="garden" data-ar="حدائق ومربعات" data-en="Garden panel">حدائق ومربعات</option>
+          <option value="floral" data-ar="نقوش زهرية" data-en="Floral">نقوش زهرية</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="productGrid" class="product-grid"></section>
+    <div id="emptyState" class="empty hidden" data-ar="لا توجد منتجات مطابقة للبحث." data-en="No products match your search.">لا توجد منتجات مطابقة للبحث.</div>
+
+    <section id="sizes" class="sizes-section">
+      <div class="sizes-copy">
+        <span class="section-kicker" data-ar="مقاسات تناسب كل مساحة" data-en="A size for every space">مقاسات تناسب كل مساحة</span>
+        <h2 data-ar="المقاسات المتوفرة" data-en="Available sizes">المقاسات المتوفرة</h2>
+        <p data-ar="اختر المقاس المناسب لغرفة المعيشة أو المجلس أو غرفة النوم، كما تتوفر ممرات للمداخل والممرات الداخلية." data-en="Choose the right size for living rooms, majlis areas and bedrooms. Matching runners are also available for hallways and entrances.">اختر المقاس المناسب لغرفة المعيشة أو المجلس أو غرفة النوم، كما تتوفر ممرات للمداخل والممرات الداخلية.</p>
+      </div>
+      <div class="size-groups">
+        <div class="size-card"><h3 data-ar="السجاد" data-en="Carpets">السجاد</h3><div class="chips"><span>400 × 500</span><span>300 × 400</span><span>250 × 350</span><span>200 × 290</span><span>150 × 220</span></div></div>
+        <div class="size-card"><h3 data-ar="الممرات" data-en="Runners">الممرات</h3><div class="chips"><span>100 × 300</span><span>100 × 200</span><span>80 × 150</span><span>50 × 80</span></div></div>
+      </div>
+    </section>
+
+    <section id="delivery" class="delivery-section">
+      <div><span class="delivery-icon">⌂</span><h3 data-ar="توصيل داخل المملكة" data-en="Saudi-wide delivery">توصيل داخل المملكة</h3><p data-ar="نوصل طلبك بأمان إلى جميع المدن والمناطق." data-en="Safe delivery to cities and regions across Saudi Arabia.">نوصل طلبك بأمان إلى جميع المدن والمناطق.</p></div>
+      <div><span class="delivery-icon">✦</span><h3 data-ar="تصاميم روبي أصلية" data-en="Original Ruby designs">تصاميم روبي أصلية</h3><p data-ar="مجموعة جديدة بألوان بيج ورمادي وذهبي هادئة." data-en="A new collection in calm beige, grey and gold tones.">مجموعة جديدة بألوان بيج ورمادي وذهبي هادئة.</p></div>
+      <div><span class="delivery-icon">☏</span><h3 data-ar="مساعدة قبل الطلب" data-en="Help before ordering">مساعدة قبل الطلب</h3><p data-ar="نساعدك في اختيار التصميم والمقاس المناسب." data-en="We help you choose the right design and size.">نساعدك في اختيار التصميم والمقاس المناسب.</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><span class="brand-mark">A</span><span><strong>Amasi Carpets</strong><small>أماسي كاربتس</small></span></div>
+    <p data-ar="سجاد روبي جديد ومقاسات متنوعة مع توصيل لجميع مناطق المملكة العربية السعودية." data-en="New Ruby carpets in multiple sizes with delivery across Saudi Arabia.">سجاد روبي جديد ومقاسات متنوعة مع توصيل لجميع مناطق المملكة العربية السعودية.</p>
+    <small>© 2026 Amasi Carpets. All rights reserved.</small>
+  </footer>
+
+  <div id="productModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="closeModal" class="close">×</button>
+      <img id="modalImg" src="" alt="">
+      <div class="modal-info">
+        <span class="eyebrow" data-ar="ماركة روبي • جديد" data-en="Ruby Brand • New">ماركة روبي • جديد</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <label data-ar="اختر المقاس" data-en="Choose size">اختر المقاس</label>
+        <select id="sizeSelect"></select>
+        <button id="whatsappBtn" class="btn primary full" data-ar="اطلب عبر واتساب" data-en="Order via WhatsApp">اطلب عبر واتساب</button>
+        <small class="note" data-ar="ضع رقم واتساب المتجر داخل ملف script.js قبل نشر الموقع." data-en="Add your store WhatsApp number in script.js before publishing.">ضع رقم واتساب المتجر داخل ملف script.js قبل نشر الموقع.</small>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

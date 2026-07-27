@@ -263,10 +263,7 @@ let favorites = JSON.parse(
 
 const grid = document.getElementById("productGrid");
 const search = document.getElementById("searchInput");
-
-const category =
-  document.getElementById("category") ||
-  document.getElementById("categoryFilter");
+const empty = document.getElementById("empty");
 
 const category =
   document.getElementById("categorySelect") ||
@@ -299,6 +296,76 @@ function resetFilters() {
     category.value = "all";
   }
 }
+
+/* =========================
+   سجل التنقل وزر الرجوع
+========================= */
+
+function buildNavigationUrl() {
+  const url = new URL(window.location.href);
+
+  url.searchParams.delete("collection");
+  url.searchParams.delete("page");
+  url.searchParams.delete("favorites");
+
+  if (showingFavorites) {
+    url.searchParams.set("favorites", "1");
+  } else if (activeCollectionId) {
+    url.searchParams.set("collection", activeCollectionId);
+  }
+
+  if (currentPage > 1) {
+    url.searchParams.set("page", currentPage);
+  }
+
+  return url;
+}
+
+function saveNavigationState() {
+  history.pushState(
+    {
+      collection: activeCollectionId,
+      page: currentPage,
+      favorites: showingFavorites
+    },
+    "",
+    buildNavigationUrl()
+  );
+}
+
+function loadNavigationState() {
+  const params = new URLSearchParams(window.location.search);
+
+  const collectionId = params.get("collection");
+  const pageNumber = Number.parseInt(params.get("page"), 10);
+  const favoritesPage = params.get("favorites") === "1";
+
+  activeCollectionId =
+    collectionId && getCollection(collectionId)
+      ? collectionId
+      : null;
+
+  showingFavorites = favoritesPage;
+  currentPage =
+    Number.isInteger(pageNumber) && pageNumber > 0
+      ? pageNumber
+      : 1;
+
+  if (activeCollectionId || showingFavorites) {
+    renderProducts();
+  } else {
+    renderCollections();
+  }
+}
+
+window.addEventListener("popstate", () => {
+  closeModal();
+  loadNavigationState();
+
+  document.getElementById("products")?.scrollIntoView({
+    behavior: "smooth"
+  });
+});
 
 /* =========================
    عرض المجلدات
@@ -415,6 +482,8 @@ function openCollection(collectionId) {
   activeCollectionId = collectionId;
   showingFavorites = false;
   resetFilters();
+
+  saveNavigationState();
   renderProducts();
 
   document.getElementById("products")?.scrollIntoView({
@@ -426,6 +495,8 @@ function goBackToCollections() {
   activeCollectionId = null;
   showingFavorites = false;
   resetFilters();
+
+  saveNavigationState();
   renderCollections();
 
   document.getElementById("products")?.scrollIntoView({
@@ -662,6 +733,8 @@ function renderProducts() {
 
 function changePage(pageNumber) {
   currentPage = pageNumber;
+
+  saveNavigationState();
   renderProducts();
 
   document.getElementById("products")?.scrollIntoView({
@@ -707,6 +780,8 @@ function showFavorites() {
   activeCollectionId = null;
   showingFavorites = true;
   resetFilters();
+
+  saveNavigationState();
   renderProducts();
 
   document.getElementById("products")?.scrollIntoView({
@@ -947,7 +1022,20 @@ if (whatsappBtn) {
   };
 }
 
-/* تشغيل الموقع */
+/* =========================
+   تشغيل الموقع
+========================= */
 
 updateFavCount();
-renderCollections();
+
+history.replaceState(
+  {
+    collection: null,
+    page: 1,
+    favorites: false
+  },
+  "",
+  window.location.href
+);
+
+loadNavigationState();

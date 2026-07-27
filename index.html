@@ -1,202 +1,490 @@
-نه<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Amasi Carpets - Ruby carpets and runners delivered across Saudi Arabia." />
+  <meta
+    name="description"
+    content="Amasi Carpets - Premium carpets delivered across Saudi Arabia."
+  />
   <title>Amasi Carpets | أماسي كاربتس</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <div class="topbar" data-ar="توصيل لجميع مناطق المملكة العربية السعودية" data-en="Delivery across all regions of Saudi Arabia">توصيل لجميع مناطق المملكة العربية السعودية</div>
+  <div
+    class="topbar"
+    data-ar="توصيل لجميع مناطق المملكة العربية السعودية"
+    data-en="Delivery across all regions of Saudi Arabia"
+  >
+    توصيل لجميع مناطق المملكة العربية السعودية
+  </div>
 
   <header class="header">
     <a class="brand" href="#home" aria-label="Amasi Carpets home">
       <span class="brand-mark">A</span>
-      <span><strong>Amasi Carpets</strong><small>أماسي كاربتس</small></span>
+      <span>
+        <strong>Amasi Carpets</strong>
+        <small>أماسي كاربتس</small>
+      </span>
     </a>
+
     <nav class="nav">
       <a href="#products" data-ar="السجاد" data-en="Carpets">السجاد</a>
       <a href="#sizes" data-ar="المقاسات" data-en="Sizes">المقاسات</a>
       <a href="#delivery" data-ar="التوصيل" data-en="Delivery">التوصيل</a>
     </nav>
+
     <div class="header-actions">
-      <button id="langBtn" class="icon-btn">EN</button>
-      <button id="favBtn" class="icon-btn" aria-label="Favorites">♡ <span id="favCount">0</span></button>
-      <button id="menuBtn" class="icon-btn menu-btn">☰</button>
+      <button id="langBtn" class="icon-btn" type="button">EN</button>
+
+      <button
+        id="favBtn"
+        class="icon-btn"
+        type="button"
+        aria-label="Favorites"
+      >
+        ♡ <span id="favCount">0</span>
+      </button>
+
+      <button id="menuBtn" class="icon-btn menu-btn" type="button">
+        ☰
+      </button>
     </div>
   </header>
 
   <main id="home">
     <section class="hero">
       <div class="hero-content">
-        <span class="eyebrow" data-ar="مجموعة روبي الجديدة" data-en="New Ruby Collection">مجموعة روبي الجديدة</span>
-        <h1 data-ar="أناقة هادئة تُكمل جمال منزلك" data-en="Quiet elegance for every home">أناقة هادئة تُكمل جمال منزلك</h1>
-        <p data-ar="سجاد روبي بتصاميم فاخرة وألوان عصرية، متوفر بمقاسات متعددة وممرات، مع توصيل لجميع مناطق المملكة." data-en="Premium Ruby carpets in elegant neutral tones, available in multiple room sizes and runners, with delivery across Saudi Arabia.">سجاد روبي بتصاميم فاخرة وألوان عصرية، متوفر بمقاسات متعددة وممرات، مع توصيل لجميع مناطق المملكة.</p>
+        <span
+          class="eyebrow"
+          data-ar="تشكيلة سجاد مختارة"
+          data-en="Curated Carpet Collection"
+        >
+          تشكيلة سجاد مختارة
+        </span>
+
+        <h1
+          data-ar="أناقة هادئة تُكمل جمال منزلك"
+          data-en="Quiet elegance for every home"
+        >
+          أناقة هادئة تُكمل جمال منزلك
+        </h1>
+
+        <p
+          data-ar="سجاد بتصاميم فاخرة وألوان عصرية، متوفر بمقاسات متعددة، مع توصيل لجميع مناطق المملكة."
+          data-en="Premium carpets in elegant modern colors, available in multiple sizes, with delivery across Saudi Arabia."
+        >
+          سجاد بتصاميم فاخرة وألوان عصرية، متوفر بمقاسات متعددة، مع
+          توصيل لجميع مناطق المملكة.
+        </p>
+
         <div class="hero-buttons">
-          <a class="btn primary" href="#products" data-ar="تسوق الآن" data-en="Shop now">تسوق الآن</a>
-          <a class="btn secondary" href="#sizes" data-ar="عرض المقاسات" data-en="View sizes">عرض المقاسات</a>
+          <a
+            class="btn primary"
+            href="#products"
+            data-ar="تسوق الآن"
+            data-en="Shop now"
+          >
+            تسوق الآن
+          </a>
+
+          <a
+            class="btn secondary"
+            href="#sizes"
+            data-ar="عرض المقاسات"
+            data-en="View sizes"
+          >
+            عرض المقاسات
+          </a>
         </div>
+
         <div class="hero-points">
-          <span>✓ <b data-ar="جودة روبي" data-en="Ruby quality">جودة روبي</b></span>
-          <span>✓ <b data-ar="طلب عبر واتساب" data-en="WhatsApp ordering">طلب عبر واتساب</b></span>
-          <span>✓ <b data-ar="دعم عربي وإنجليزي" data-en="Arabic & English">دعم عربي وإنجليزي</b></span>
+          <span>
+            ✓
+            <b data-ar="ماركات مختارة" data-en="Selected brands">
+              ماركات مختارة
+            </b>
+          </span>
+
+          <span>
+            ✓
+            <b data-ar="طلب عبر واتساب" data-en="WhatsApp ordering">
+              طلب عبر واتساب
+            </b>
+          </span>
+
+          <span>
+            ✓
+            <b data-ar="دعم عربي وإنجليزي" data-en="Arabic & English">
+              دعم عربي وإنجليزي
+            </b>
+          </span>
         </div>
       </div>
-      <div class="hero-image"><img src="carpet-01.jpeg" alt="Ruby carpet by Amasi Carpets"></div>
+
+      <div class="hero-image">
+        <img
+          src="carpet-01.jpeg"
+          alt="Premium carpet by Amasi Carpets"
+        />
+      </div>
     </section>
 
     <section class="toolbar" id="products">
       <div>
-        <span class="section-kicker" data-ar="تشكيلة مختارة" data-en="Curated collection">تشكيلة مختارة</span>
-        <h2 data-ar="سجاد روبي الجديد" data-en="New Ruby Carpets">سجاد روبي الجديد</h2>
+        <span
+          class="section-kicker"
+          data-ar="تشكيلة مختارة"
+          data-en="Curated collection"
+        >
+          تشكيلة مختارة
+        </span>
+
+        <h2
+          data-ar="تصفح ماركات السجاد"
+          data-en="Browse Carpet Brands"
+        >
+          تصفح ماركات السجاد
+        </h2>
       </div>
+
       <div class="controls">
-        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن تصميم أو مقاس" /></label>
-        <select id="categorySelect" aria-label="Category">
-          <option value="all" data-ar="كل التصنيفات" data-en="All categories">كل التصنيفات</option>
-          <option value="medallion" data-ar="ميدالية وسطية" data-en="Center medallion">ميدالية وسطية</option>
-          <option value="garden" data-ar="حدائق ومربعات" data-en="Garden panel">حدائق ومربعات</option>
-          <option value="floral" data-ar="نقوش زهرية" data-en="Floral">نقوش زهرية</option>
+        <label class="search">
+          <span>⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="ابحث عن ماركة أو نقشة أو مقاس"
+          />
+        </label>
+
+        <select id="categoryFilter" aria-label="Category">
+          <option
+            value="all"
+            data-ar="كل التصنيفات"
+            data-en="All categories"
+          >
+            كل التصنيفات
+          </option>
+
+          <option
+            value="medallion"
+            data-ar="ميدالية وسطية"
+            data-en="Center medallion"
+          >
+            ميدالية وسطية
+          </option>
+
+          <option
+            value="garden"
+            data-ar="حدائق ومربعات"
+            data-en="Garden panel"
+          >
+            حدائق ومربعات
+          </option>
+
+          <option
+            value="floral"
+            data-ar="نقوش زهرية"
+            data-en="Floral"
+          >
+            نقوش زهرية
+          </option>
         </select>
       </div>
     </section>
 
     <section id="productGrid" class="product-grid"></section>
-    <div id="emptyState" class="empty hidden" data-ar="لا توجد منتجات مطابقة للبحث." data-en="No products match your search.">لا توجد منتجات مطابقة للبحث.</div>
+
+    <div
+      id="emptyState"
+      class="empty hidden"
+      data-ar="لا توجد منتجات مطابقة للبحث."
+      data-en="No products match your search."
+    >
+      لا توجد منتجات مطابقة للبحث.
+    </div>
 
     <section id="sizes" class="sizes-section">
       <div class="sizes-copy">
-        <span class="section-kicker" data-ar="مقاسات تناسب كل مساحة" data-en="A size for every space">مقاسات تناسب كل مساحة</span>
-        <h2 data-ar="المقاسات المتوفرة" data-en="Available sizes">المقاسات المتوفرة</h2>
-        <p data-ar="اختر المقاس المناسب لغرفة المعيشة أو المجلس أو غرفة النوم، كما تتوفر ممرات للمداخل والممرات الداخلية." data-en="Choose the right size for living rooms, majlis areas and bedrooms. Matching runners are also available for hallways and entrances.">اختر المقاس المناسب لغرفة المعيشة أو المجلس أو غرفة النوم، كما تتوفر ممرات للمداخل والممرات الداخلية.</p>
+        <span
+          class="section-kicker"
+          data-ar="مقاسات تناسب كل مساحة"
+          data-en="A size for every space"
+        >
+          مقاسات تناسب كل مساحة
+        </span>
+
+        <h2
+          data-ar="المقاسات المتوفرة"
+          data-en="Available sizes"
+        >
+          المقاسات المتوفرة
+        </h2>
+
+        <p
+          data-ar="تختلف المقاسات المتوفرة حسب الماركة والنقشة. افتح تفاصيل أي نقشة لمشاهدة مقاساتها الصحيحة."
+          data-en="Available sizes vary by brand and pattern. Open any pattern to see its correct sizes."
+        >
+          تختلف المقاسات المتوفرة حسب الماركة والنقشة. افتح تفاصيل أي
+          نقشة لمشاهدة مقاساتها الصحيحة.
+        </p>
       </div>
+
       <div class="size-groups">
-        <div class="size-card"><h3 data-ar="السجاد" data-en="Carpets">السجاد</h3><div class="chips"><span>400 × 500</span><span>300 × 400</span><span>250 × 350</span><span>200 × 290</span><span>150 × 220</span></div></div>
-        <div class="size-card"><h3 data-ar="الممرات" data-en="Runners">الممرات</h3><div class="chips"><span>100 × 300</span><span>100 × 200</span><span>80 × 150</span><span>50 × 80</span></div></div>
+        <div class="size-card">
+          <h3 data-ar="روبي" data-en="Ruby">روبي</h3>
+          <div class="chips">
+            <span>400 × 500</span>
+            <span>300 × 400</span>
+            <span>250 × 350</span>
+            <span>200 × 290</span>
+            <span>150 × 220</span>
+            <span>100 × 300</span>
+            <span>100 × 200</span>
+            <span>80 × 150</span>
+            <span>50 × 80</span>
+          </div>
+        </div>
+
+        <div class="size-card">
+          <h3 data-ar="فلوريا" data-en="Floria">فلوريا</h3>
+          <div class="chips">
+            <span>500 × 700</span>
+            <span>500 × 600</span>
+            <span>400 × 700</span>
+            <span>400 × 600</span>
+            <span>400 × 500</span>
+            <span>400 × 400</span>
+            <span>300 × 500</span>
+            <span>300 × 400</span>
+            <span>250 × 350</span>
+            <span>200 × 300</span>
+            <span>150 × 220</span>
+            <span>100 × 500</span>
+            <span>100 × 400</span>
+            <span>100 × 300</span>
+            <span>100 × 200</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    
-   <section id="delivery" class="delivery-section">
+    <section id="delivery" class="delivery-section">
+      <h2 data-ar="فروعنا" data-en="Our Branches">فروعنا</h2>
 
-  <h2 data-ar="فروعنا" data-en="Our Branches">فروعنا</h2>
+      <div class="delivery-grid">
+        <div class="delivery-card">
+          <span class="delivery-icon">📍</span>
 
-  <div class="delivery-grid">
+          <h3
+            data-ar="فرع المدينة المنورة – العوالي"
+            data-en="Madinah Branch – Al Awali"
+          >
+            فرع المدينة المنورة – العوالي
+          </h3>
 
-    <div class="delivery-card">
-      <span class="delivery-icon">📍</span>
-      <h3 data-ar="فرع المدينة المنورة – العوالي"
-          data-en="Madinah Branch – Al Awali">
-        فرع المدينة المنورة – العوالي
-      </h3>
-      <a href="https://maps.app.goo.gl/Wrk7fVFzW6pucmnc9?g_st=ic"
-         target="_blank"
-         rel="noopener"
-         data-ar="فتح الموقع على الخريطة"
-         data-en="Open location on map">
-        فتح الموقع على الخريطة
-      </a>
-    </div>
+          <a
+            href="https://maps.app.goo.gl/Wrk7fVFzW6pucmnc9?g_st=ic"
+            target="_blank"
+            rel="noopener"
+            data-ar="فتح الموقع على الخريطة"
+            data-en="Open location on map"
+          >
+            فتح الموقع على الخريطة
+          </a>
+        </div>
 
-    <div class="delivery-card">
-      <span class="delivery-icon">📍</span>
-      <h3 data-ar="أماسي كاربتس – جدة"
-          data-en="Amasi Carpets – Jeddah">
-        أماسي كاربتس – جدة
-      </h3>
-      <p data-ar="سوق الدراجة – عند دوار الدراجة"
-         data-en="Al Darajah Market – Near Al Darajah Roundabout">
-        سوق الدراجة – عند دوار الدراجة
-      </p>
-      <a href="https://maps.app.goo.gl/tuZLe3BhHk1Pgqrt8?g_st=ic"
-         target="_blank"
-         rel="noopener"
-         data-ar="فتح الموقع على الخريطة"
-         data-en="Open location on map">
-        فتح الموقع على الخريطة
-      </a>
-    </div>
+        <div class="delivery-card">
+          <span class="delivery-icon">📍</span>
 
-    <div class="delivery-card">
-      <span class="delivery-icon">📍</span>
-      <h3 data-ar="فرع دوار العروة – المدينة المنورة"
-          data-en="Urwah Roundabout Branch – Madinah">
-        فرع دوار العروة – المدينة المنورة
-      </h3>
-      <p data-ar="سوق المركزية للمفروشات – بجوار سوق الخضار"
-         data-en="Central Furniture Market – Next to the vegetable market">
-        سوق المركزية للمفروشات – بجوار سوق الخضار
-      </p>
-      <a href="https://maps.app.goo.gl/mLCw2aqgJBBp6Svx7?g_st=ic"
-         target="_blank"
-         rel="noopener"
-         data-ar="فتح الموقع على الخريطة"
-         data-en="Open location on map">
-        فتح الموقع على الخريطة
-      </a>
-    </div>
+          <h3
+            data-ar="أماسي كاربتس – جدة"
+            data-en="Amasi Carpets – Jeddah"
+          >
+            أماسي كاربتس – جدة
+          </h3>
 
-  </div>
+          <p
+            data-ar="سوق الدراجة – عند دوار الدراجة"
+            data-en="Al Darajah Market – Near Al Darajah Roundabout"
+          >
+            سوق الدراجة – عند دوار الدراجة
+          </p>
 
-  <h2 data-ar="الشحن والتوصيل" data-en="Shipping and Delivery">
-    الشحن والتوصيل
-  </h2>
+          <a
+            href="https://maps.app.goo.gl/tuZLe3BhHk1Pgqrt8?g_st=ic"
+            target="_blank"
+            rel="noopener"
+            data-ar="فتح الموقع على الخريطة"
+            data-en="Open location on map"
+          >
+            فتح الموقع على الخريطة
+          </a>
+        </div>
 
-  <div class="delivery-grid">
+        <div class="delivery-card">
+          <span class="delivery-icon">📍</span>
 
-    <div class="delivery-card">
-      <span class="delivery-icon">🚚</span>
-      <h3 data-ar="المدينة المنورة وجدة"
-          data-en="Madinah and Jeddah">
-        المدينة المنورة وجدة
-      </h3>
-      <p data-ar="توصيل مجاني إلى المنزل خلال يوم إلى يومين عمل."
-         data-en="Free home delivery within 1–2 business days.">
-        توصيل مجاني إلى المنزل خلال يوم إلى يومين عمل.
-      </p>
-    </div>
+          <h3
+            data-ar="فرع دوار العروة – المدينة المنورة"
+            data-en="Urwah Roundabout Branch – Madinah"
+          >
+            فرع دوار العروة – المدينة المنورة
+          </h3>
 
-    <div class="delivery-card">
-      <span class="delivery-icon">📦</span>
-      <h3 data-ar="باقي مناطق المملكة"
-          data-en="Other Regions of Saudi Arabia">
-        باقي مناطق المملكة
-      </h3>
-      <p data-ar="التوصيل خلال 5 إلى 7 أيام عمل، ورسوم الشحن من 100 إلى 300 ريال حسب المنطقة وحجم الطلب."
-         data-en="Delivery within 5–7 business days. Shipping costs range from SAR 100 to SAR 300 depending on the region and order size.">
-        التوصيل خلال 5 إلى 7 أيام عمل، ورسوم الشحن من 100 إلى 300 ريال حسب المنطقة وحجم الطلب.
-      </p>
-    </div>
+          <p
+            data-ar="سوق المركزية للمفروشات – بجوار سوق الخضار"
+            data-en="Central Furniture Market – Next to the vegetable market"
+          >
+            سوق المركزية للمفروشات – بجوار سوق الخضار
+          </p>
 
-  </div>
+          <a
+            href="https://maps.app.goo.gl/mLCw2aqgJBBp6Svx7?g_st=ic"
+            target="_blank"
+            rel="noopener"
+            data-ar="فتح الموقع على الخريطة"
+            data-en="Open location on map"
+          >
+            فتح الموقع على الخريطة
+          </a>
+        </div>
+      </div>
 
-</section>
-</main>
+      <h2
+        data-ar="الشحن والتوصيل"
+        data-en="Shipping and Delivery"
+      >
+        الشحن والتوصيل
+      </h2>
+
+      <div class="delivery-grid">
+        <div class="delivery-card">
+          <span class="delivery-icon">🚚</span>
+
+          <h3
+            data-ar="المدينة المنورة وجدة"
+            data-en="Madinah and Jeddah"
+          >
+            المدينة المنورة وجدة
+          </h3>
+
+          <p
+            data-ar="توصيل مجاني إلى المنزل خلال يوم إلى يومين عمل."
+            data-en="Free home delivery within 1–2 business days."
+          >
+            توصيل مجاني إلى المنزل خلال يوم إلى يومين عمل.
+          </p>
+        </div>
+
+        <div class="delivery-card">
+          <span class="delivery-icon">📦</span>
+
+          <h3
+            data-ar="باقي مناطق المملكة"
+            data-en="Other Regions of Saudi Arabia"
+          >
+            باقي مناطق المملكة
+          </h3>
+
+          <p
+            data-ar="التوصيل خلال 5 إلى 7 أيام عمل، ورسوم الشحن من 100 إلى 300 ريال حسب المنطقة وحجم الطلب."
+            data-en="Delivery within 5–7 business days. Shipping costs range from SAR 100 to SAR 300 depending on the region and order size."
+          >
+            التوصيل خلال 5 إلى 7 أيام عمل، ورسوم الشحن من 100 إلى 300
+            ريال حسب المنطقة وحجم الطلب.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <div class="brand footer-brand"><span class="brand-mark">A</span><span><strong>Amasi Carpets</strong><small>أماسي كاربتس</small></span></div>
-    <p data-ar="سجاد روبي جديد ومقاسات متنوعة مع توصيل لجميع مناطق المملكة العربية السعودية." data-en="New Ruby carpets in multiple sizes with delivery across Saudi Arabia.">سجاد روبي جديد ومقاسات متنوعة مع توصيل لجميع مناطق المملكة العربية السعودية.</p>
+    <div class="brand footer-brand">
+      <span class="brand-mark">A</span>
+      <span>
+        <strong>Amasi Carpets</strong>
+        <small>أماسي كاربتس</small>
+      </span>
+    </div>
+
+    <p
+      data-ar="سجاد من ماركات مختارة ومقاسات متنوعة مع توصيل لجميع مناطق المملكة العربية السعودية."
+      data-en="Selected carpet brands in multiple sizes with delivery across Saudi Arabia."
+    >
+      سجاد من ماركات مختارة ومقاسات متنوعة مع توصيل لجميع مناطق
+      المملكة العربية السعودية.
+    </p>
+
     <small>© 2026 Amasi Carpets. All rights reserved.</small>
   </footer>
 
-  <div id="productModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div
+    id="productModal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
     <div class="modal-card">
-      <button id="closeModal" class="close">×</button>
-      <img id="modalImg" src="" alt="">
+      <button
+        id="closeModal"
+        class="close"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <img id="modalImg" src="" alt="" />
+
       <div class="modal-info">
-        <span class="eyebrow" data-ar="ماركة روبي • جديد" data-en="Ruby Brand • New">ماركة روبي • جديد</span>
+        <span
+          class="eyebrow"
+          data-ar="تفاصيل النقشة • جديد"
+          data-en="Pattern Details • New"
+        >
+          تفاصيل النقشة • جديد
+        </span>
+
         <h2 id="modalTitle"></h2>
         <p id="modalDesc"></p>
-        
-        <h3 data-ar="المقاسات المتوفرة" data-en="Available sizes">المقاسات المتوفرة</h3>
-        <select id="sizeSelect"></select>
-        </div>
 
-        <button id="whatsappBtn" class="btn primary full" data-ar="اطلب عبر واتساب" data-en="Order via WhatsApp">اطلب عبر واتساب</button>
-        <small class="note" data-ar="ضع رقم واتساب المتجر داخل ملف script.js قبل نشر الموقع." data-en="Add your store WhatsApp number in script.js before publishing.">ضع رقم واتساب المتجر داخل ملف script.js قبل نشر الموقع.</small>
+        <h3
+          data-ar="المقاسات المتوفرة"
+          data-en="Available sizes"
+        >
+          المقاسات المتوفرة
+        </h3>
+
+        <select id="sizeSelect"></select>
+
+        <button
+          id="whatsappBtn"
+          class="btn primary full"
+          type="button"
+          data-ar="اطلب عبر واتساب"
+          data-en="Order via WhatsApp"
+        >
+          اطلب عبر واتساب
+        </button>
+
+        <small
+          class="note"
+          data-ar="اختر المقاس ثم اضغط للطلب عبر واتساب."
+          data-en="Select a size, then order through WhatsApp."
+        >
+          اختر المقاس ثم اضغط للطلب عبر واتساب.
+        </small>
       </div>
     </div>
   </div>

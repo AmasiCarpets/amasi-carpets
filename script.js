@@ -145,6 +145,7 @@ const products = [
     en: "Ruby Pattern 11"
   }
 ,
+*/
 {
   id: 12,
   collection: "floria",
@@ -225,6 +226,8 @@ const products = [
   ar: "نقشة فلوريا 10",
   en: "Floria Pattern 10"
 }
+
+/*
   لإضافة نقشة لمجلد آخر، غيّر collection إلى معرف المجلد:
   collection: "new-brand"
   */

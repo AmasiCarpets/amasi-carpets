@@ -144,7 +144,87 @@ const products = [
     ar: "نقشة روبي 11",
     en: "Ruby Pattern 11"
   }
-
+,
+{
+  id: 12,
+  collection: "floria",
+  img: "IMG_0200.jpeg",
+  cat: "medallion",
+  ar: "نقشة فلوريا 01",
+  en: "Floria Pattern 01"
+},
+{
+  id: 13,
+  collection: "floria",
+  img: "IMG_0201.jpeg",
+  cat: "floral",
+  ar: "نقشة فلوريا 02",
+  en: "Floria Pattern 02"
+},
+{
+  id: 14,
+  collection: "floria",
+  img: "IMG_0202.jpeg",
+  cat: "garden",
+  ar: "نقشة فلوريا 03",
+  en: "Floria Pattern 03"
+},
+{
+  id: 15,
+  collection: "floria",
+  img: "IMG_0203.jpeg",
+  cat: "medallion",
+  ar: "نقشة فلوريا 04",
+  en: "Floria Pattern 04"
+},
+{
+  id: 16,
+  collection: "floria",
+  img: "IMG_0204.jpeg",
+  cat: "floral",
+  ar: "نقشة فلوريا 05",
+  en: "Floria Pattern 05"
+},
+{
+  id: 17,
+  collection: "floria",
+  img: "IMG_0205.jpeg",
+  cat: "garden",
+  ar: "نقشة فلوريا 06",
+  en: "Floria Pattern 06"
+},
+{
+  id: 18,
+  collection: "floria",
+  img: "IMG_0206.jpeg",
+  cat: "medallion",
+  ar: "نقشة فلوريا 07",
+  en: "Floria Pattern 07"
+},
+{
+  id: 19,
+  collection: "floria",
+  img: "IMG_0207.jpeg",
+  cat: "floral",
+  ar: "نقشة فلوريا 08",
+  en: "Floria Pattern 08"
+},
+{
+  id: 20,
+  collection: "floria",
+  img: "IMG_0208.jpeg",
+  cat: "garden",
+  ar: "نقشة فلوريا 09",
+  en: "Floria Pattern 09"
+},
+{
+  id: 21,
+  collection: "floria",
+  img: "IMG_0209.jpeg",
+  cat: "medallion",
+  ar: "نقشة فلوريا 10",
+  en: "Floria Pattern 10"
+}
   لإضافة نقشة لمجلد آخر، غيّر collection إلى معرف المجلد:
   collection: "new-brand"
   */

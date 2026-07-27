@@ -143,9 +143,9 @@ const products = [
     cat: "medallion",
     ar: "نقشة روبي 11",
     en: "Ruby Pattern 11"
-  }
-,
+  },
 */
+,
 {
   id: 12,
   collection: "floria",

@@ -197,7 +197,7 @@ const products = [
 {
   id: 18,
   collection: "floria",
-  img: floria/IMG_0206.jpeg",
+  img: "floria/IMG_0206.jpeg",
   cat: "medallion",
   ar: "نقشة فلوريا 07",
   en: "Floria Pattern 07"

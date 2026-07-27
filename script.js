@@ -148,7 +148,7 @@ const products = [
 {
   id: 12,
   collection: "floria",
-  img: "IMG_0200.jpeg",
+  img: "floria/IMG_0200.jpeg",
   cat: "medallion",
   ar: "نقشة فلوريا 01",
   en: "Floria Pattern 01"
@@ -156,7 +156,7 @@ const products = [
 {
   id: 13,
   collection: "floria",
-  img: "IMG_0201.jpeg",
+  img: "floria/IMG_0201.jpeg",
   cat: "floral",
   ar: "نقشة فلوريا 02",
   en: "Floria Pattern 02"
@@ -164,7 +164,7 @@ const products = [
 {
   id: 14,
   collection: "floria",
-  img: "IMG_0202.jpeg",
+  img: "floria/IMG_0202.jpeg",
   cat: "garden",
   ar: "نقشة فلوريا 03",
   en: "Floria Pattern 03"
@@ -172,7 +172,7 @@ const products = [
 {
   id: 15,
   collection: "floria",
-  img: "IMG_0203.jpeg",
+  img: "floria/IMG_0203.jpeg",
   cat: "medallion",
   ar: "نقشة فلوريا 04",
   en: "Floria Pattern 04"
@@ -180,7 +180,7 @@ const products = [
 {
   id: 16,
   collection: "floria",
-  img: "IMG_0204.jpeg",
+  img: "floria/IMG_0204.jpeg",
   cat: "floral",
   ar: "نقشة فلوريا 05",
   en: "Floria Pattern 05"
@@ -188,7 +188,7 @@ const products = [
 {
   id: 17,
   collection: "floria",
-  img: "IMG_0205.jpeg",
+  img: "floria/IMG_0205.jpeg",
   cat: "garden",
   ar: "نقشة فلوريا 06",
   en: "Floria Pattern 06"
@@ -196,7 +196,7 @@ const products = [
 {
   id: 18,
   collection: "floria",
-  img: "IMG_0206.jpeg",
+  img: floria/IMG_0206.jpeg",
   cat: "medallion",
   ar: "نقشة فلوريا 07",
   en: "Floria Pattern 07"
@@ -204,7 +204,7 @@ const products = [
 {
   id: 19,
   collection: "floria",
-  img: "IMG_0207.jpeg",
+  img: "floria/IMG_0207.jpeg",
   cat: "floral",
   ar: "نقشة فلوريا 08",
   en: "Floria Pattern 08"
@@ -212,7 +212,7 @@ const products = [
 {
   id: 20,
   collection: "floria",
-  img: "IMG_0208.jpeg",
+  img: "floria/IMG_0208.jpeg",
   cat: "garden",
   ar: "نقشة فلوريا 09",
   en: "Floria Pattern 09"
@@ -220,7 +220,7 @@ const products = [
 {
   id: 21,
   collection: "floria",
-  img: "IMG_0209.jpeg",
+  img: "floria/IMG_0209.jpeg",
   cat: "medallion",
   ar: "نقشة فلوريا 10",
   en: "Floria Pattern 10"

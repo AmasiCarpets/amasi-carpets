@@ -27,20 +27,24 @@ const collections = [
     cover: "carpet-01.jpeg",
     descriptionAr: "اضغط لمشاهدة جميع نقشات ماركة روبي",
     descriptionEn: "Tap to view all Ruby carpet patterns"
-  }
+  
 
-  /*
-  لإضافة مجلد جديد مستقبلاً، ضع فاصلة بعد مجلد روبي ثم أضف:
+  
+  
 
-  {
-    id: "new-brand",
-    ar: "نقشات الماركة الجديدة",
-    en: "New Brand Patterns",
-    cover: "new-brand-01.jpeg",
-    descriptionAr: "اضغط لمشاهدة جميع النقشات",
-    descriptionEn: "Tap to view all patterns"
+  
+    
+  
   }
-  */
+  ,
+{
+  id: "floria",
+  ar: "نقشات ماركة فلوريا",
+  en: "Floria Carpet Patterns",
+  cover: "IMG_0200.jpeg",
+  descriptionAr: "اضغط لمشاهدة جميع نقشات فلوريا",
+  descriptionEn: "Tap to view all Floria carpet patterns"
+}
 ];
 
 /* =========================

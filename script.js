@@ -41,7 +41,7 @@ const collections = [
   id: "floria",
   ar: "نقشات ماركة فلوريا",
   en: "Floria Carpet Patterns",
-  cover: "IMG_0200.jpeg",
+  cover: "floria/IMG_0200.jpeg",
   descriptionAr: "اضغط لمشاهدة جميع نقشات فلوريا",
   descriptionEn: "Tap to view all Floria carpet patterns"
 }

@@ -268,9 +268,10 @@ const category =
   document.getElementById("category") ||
   document.getElementById("categoryFilter");
 
-const empty =
-  document.getElementById("empty") ||
-  document.getElementById("emptyState");
+const category =
+  document.getElementById("categorySelect") ||
+  document.getElementById("category") ||
+  document.getElementById("categoryFilter");
 
 function t(ar, en) {
   return lang === "ar" ? ar : en;
